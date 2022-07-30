@@ -54,17 +54,90 @@
           </div>
         </div>
       </div>
+
+      <div class="carousel section">
+        <vueper-slides
+          class="no-shadow"
+          :visible-slides="3"
+          :slide-ratio="1 / 4"
+          :dragging-distance="70">
+          <vueper-slide v-for="i in slides" :key="i" :image="i.image" />
+        </vueper-slides>
+      </div>
       
+      <div class="contact section">
+        <md-button href="https://wa.me/+6282210357112" target="_blank" class="md-primary">
+          <md-icon>whatsapp</md-icon>
+          082210357112
+        </md-button>
+      </div>
     </div>
+    <div class="footer">
+        <div class="footer-content">
+          <md-icon>mail</md-icon>
+          <p>belivineofficial</p>
+        </div>
+        <div class="footer-content">
+          <md-icon>mail</md-icon>
+          <p>belivine</p>
+        </div>
+        <div class="footer-content">
+          <md-icon>mail</md-icon>
+          <p>belivine.team</p>
+        </div>
+        <div class="footer-content">
+          <md-icon>location_on</md-icon>
+          <p>Yogyakarta</p>
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
+
 export default {
   name: "IndexPage",
+  components: {
+    VueperSlides,
+    VueperSlide
+  },
   data() {
     return {
       screenWidth: 0,
+      slides: [
+        {
+          title: 'Slide #1',
+          content: 'Slide 1 content.',
+          image: require('@/assets/images/hr.jpg')
+        },
+        {
+          title: 'Slide #1',
+          content: 'Slide 1 content.',
+          image: require('@/assets/images/login.jpg')
+        },
+        {
+          title: 'Slide #1',
+          content: 'Slide 1 content.',
+          image: require('@/assets/images/hr.jpg')
+        },
+        {
+          title: 'Slide #1',
+          content: 'Slide 1 content.',
+          image: require('@/assets/images/hr.jpg')
+        },
+        {
+          title: 'Slide #1',
+          content: 'Slide 1 content.',
+          image: require('@/assets/images/hr.jpg')
+        },
+        {
+          title: 'Slide #1',
+          content: 'Slide 1 content.',
+          image: require('@/assets/images/hr.jpg')
+        },
+      ],
       features: [
         {
           name: "HR",
@@ -72,31 +145,31 @@ export default {
           featureList: [
             [
               {
-              icon: "home",
+              icon: "event",
               label: "Timesheet",
               },
               {
-                icon: "",
+                icon: "sticky_note_2",
                 label: "Perijinan",
               },
             ],
             [
               {
-                icon: "home",
+                icon: "assignment",
                 label: "Data Karyawan",
               },
               {
-                icon: "home",
+                icon: "edit_document",
                 label: "Data Kontrak",
               }
             ],
             [
               {
-                icon: "home",
+                icon: "calendar_month",
                 label: "Kalender",
               },
               {
-                icon: "home",
+                icon: "backup_table",
                 label: "Dokumen Karyawan",
               },
             ]
@@ -108,17 +181,17 @@ export default {
           featureList: [
             [
               {
-                icon: "home",
+                icon: "monetization_on",
                 label: "Data Gaji",
               },
               {
-                icon: "home",
+                icon: "post_min",
                 label: "Potongan Gaji",
               },
             ],
             [
               {
-                icon: "home",
+                icon: "post_add",
                 label: "Bonus",
               },
               {
@@ -141,32 +214,22 @@ export default {
             [
               {
               icon: "home",
-              label: "Timesheet",
+              label: "Penggajian",
               },
               {
                 icon: "",
-                label: "Perijinan",
+                label: "Keuangan",
               },
             ],
             [
               {
                 icon: "home",
-                label: "Data Karyawan",
+                label: "Kehadiran",
               },
               {
                 icon: "home",
-                label: "Data Kontrak",
+                label: "Kontrak",
               }
-            ],
-            [
-              {
-                icon: "home",
-                label: "Kalender",
-              },
-              {
-                icon: "home",
-                label: "Dokumen Karyawan",
-              },
             ]
           ],
         },
@@ -267,6 +330,44 @@ export default {
   width: 31.25rem;
   /* border: 1px solid gray; */
   border-radius: 0.313rem;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+}
+
+.contact .md-button {
+  color: white !important;
+  background-color: #27A11A;
+  width: 400px;
+  height: 60px;
+  border-radius: 5px;
+}
+
+.contact .md-button .md-button-content {
+  font-size: 25px;
+}
+
+.contact .md-button .md-icon {
+  color: white !important;
+  margin-top: -4px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background-color: #43B3CC;
+}
+
+.footer .footer-content {
+  display: flex;
+  gap: 10px;
+}
+
+.footer .footer-content p, .footer .footer-content .md-icon {
+  color: white !important;
 }
 
 @media (max-width: 1450px) {
