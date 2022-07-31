@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <div id="carousel" class="section">
+      <!-- <div id="carousel" class="section">
         <vueper-slides
           class="no-shadow"
           :visible-slides="3"
@@ -63,7 +63,7 @@
           :dragging-distance="70">
           <vueper-slide v-for="i in slides" :key="i" :image="i.image" />
         </vueper-slides>
-      </div>
+      </div> -->
       
       <div id="contact" class="section">
         <md-button href="https://wa.me/+6282210357112" target="_blank" class="md-primary">
@@ -388,6 +388,20 @@ export default {
 
   .md-toolbar {
     padding: 0 9.375rem;
+  }
+}
+
+@media (max-width: 553px) {
+  .container {
+    margin: 1.25rem;
+  }
+
+  #footer .footer-content {
+    gap: 0
+  }
+
+  #footer .footer-content p, #footer .footer-content i {
+    font-size: 0.438rem !important;
   }
 }
 </style>
