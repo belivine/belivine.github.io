@@ -3,10 +3,10 @@
     <md-toolbar class="md-accent" md-elevation="1">
       <h3 class="md-title">Belivine</h3>
       <md-button>Beranda</md-button>
-      <md-button>Fitur</md-button>
-      <md-button>Kontak</md-button>
+      <md-button href=#feature>Fitur</md-button>
+      <md-button href="https://wa.me/+6282210357112" target="blank_">Kontak</md-button>
     </md-toolbar>
-    <div class="banner">
+    <div id="banner">
       <div class="container" style="display: flex">
         <div class="banner-left">
           <p>Selamat datang di Belivine</p>
@@ -19,7 +19,7 @@
       </div>      
     </div>
     <div class="container">
-      <div class="about section">
+      <div id="about" class="section">
         <h1>Apa itu Belivine?</h1>
         <p>
           Belivine merupakan Human Resource Management System yang akan membantu
@@ -27,7 +27,7 @@
         </p>
       </div>
 
-      <div class="feature section">
+      <div id="feature" class="section">
         <div class="md-layout md-gutter" v-for="(feature, idx) in features" :key="idx">
           <div class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100 right" v-if="idx % 2 == 0" style="align-items: center">
             <div v-for="(val, i) in feature.featureList" :key="i" >
@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <div class="carousel section">
+      <div id="carousel" class="section">
         <vueper-slides
           class="no-shadow"
           :visible-slides="3"
@@ -65,14 +65,14 @@
         </vueper-slides>
       </div>
       
-      <div class="contact section">
+      <div id="contact" class="section">
         <md-button href="https://wa.me/+6282210357112" target="_blank" class="md-primary">
           <md-icon>whatsapp</md-icon>
           082210357112
         </md-button>
       </div>
     </div>
-    <div class="footer">
+    <div id="footer">
         <div class="footer-content">
           <md-icon>mail</md-icon>
           <p>belivineofficial</p>
@@ -273,24 +273,31 @@ export default {
   padding: 0px 17.75rem;
 }
 
-.banner {
+#banner {
   height: 31.25rem;
   width: 100%;
+  /* height: 51.98vh; */
   background-color: #1165ad;
   padding-top: 4.688rem;
   color: white;
+  gap: 3.125rem;
 }
 
-.banner .banner-left h1 {
-  font-size: 2.5rem;
+#banner .banner-left h1 {
+  font-size: 2.08vw;
 }
 
 .banner-right {
-  margin-left: 3.125rem;
+  /* margin-left: 3.125rem; */
+  width: 30%;
 }
 
-.banner .banner-right img {
-  width: 18.75rem;
+#banner .banner-right img {
+  width: 100%;
+}
+
+#banner .banner-left {
+  width: 70%;
 }
 
 .section {
@@ -303,7 +310,7 @@ export default {
   margin-right: 18.75rem;
 }
 
-.about {
+#about {
   text-align: center;
 }
 
@@ -332,12 +339,12 @@ export default {
   border-radius: 0.313rem;
 }
 
-.contact {
+#contact {
   display: flex;
   justify-content: center;
 }
 
-.contact .md-button {
+#contact .md-button {
   color: white !important;
   background-color: #27A11A;
   width: 400px;
@@ -345,34 +352,42 @@ export default {
   border-radius: 5px;
 }
 
-.contact .md-button .md-button-content {
-  font-size: 25px;
+#contact .md-button .md-button-content {
+  font-size: 1.3vw;
 }
 
-.contact .md-button .md-icon {
+#contact .md-button .md-icon {
   color: white !important;
   margin-top: -4px;
 }
 
-.footer {
+#footer {
   display: flex;
   justify-content: center;
   gap: 40px;
   background-color: #43B3CC;
 }
 
-.footer .footer-content {
+#footer .footer-content {
   display: flex;
   gap: 10px;
 }
 
-.footer .footer-content p, .footer .footer-content .md-icon {
+#footer .footer-content p, #footer .footer-content .md-icon {
   color: white !important;
+}
+
+@media (max-width: 1195px) {
+
 }
 
 @media (max-width: 1450px) {
   .container {
     margin: 0 9.375rem;
+  }
+
+  .md-toolbar {
+    padding: 0 9.375rem;
   }
 }
 </style>
