@@ -396,6 +396,15 @@ export default {
     margin: 1.25rem;
   }
 
+  .md-toolbar {
+    display: none;
+  }
+
+  #banner {
+    height: 14.063rem;
+    padding-top: 1.25rem;
+  }
+
   #footer .footer-content {
     gap: 0
   }
