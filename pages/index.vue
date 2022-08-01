@@ -29,24 +29,24 @@
 
       <div id="feature" class="section">
         <div class="md-layout md-gutter" v-for="(feature, idx) in features" :key="idx">
-          <div class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100 right" v-if="idx % 2 == 0" style="align-items: center">
+          <div class="md-layout-item right reverse" v-if="idx % 2 == 0" style="margin-top: 2.188rem">
             <div v-for="(val, i) in feature.featureList" :key="i" >
-              <div class="single-item md-layout-item md-medium-size-30 md-small-size-30 md-xsmall-size-30" v-for="(list, index) in val" :key="index">
+              <div class="single-item md-layout-item" v-for="(list, index) in val" :key="index">
                 <md-icon class="item-icon" style="display: flex !important; justify-content: center; color: white">{{list.icon}}</md-icon>
                 <p style="text-align: center; font-size: 0.625rem">{{ list.label }}</p>
               </div>
             </div>
           </div>
-          <div v-if="idx % 2 == 0" class="md-layout-item md-medium-size-30 md-small-size-30 md-xsmall-size-100">
+          <div v-if="idx % 2 == 0" class="reverse md-layout-item">
             <img :src="require(`~/assets/images/${feature.image}`)" alt="" />
           </div>
 
           <div v-if="idx % 2 !== 0" class="md-layout-item right">
             <img :src="require(`~/assets/images/${feature.image}`)" alt="" />
           </div>
-          <div class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100" v-if="idx % 2 !== 0" style="align-items: center; display: flex">
+          <div class="md-layout-item" v-if="idx % 2 !== 0" style="margin-top: 8.125rem; display: flex">
             <div v-for="(val, i) in feature.featureList" :key="i" >
-              <div class="single-item md-layout-item md-medium-size-30 md-small-size-30 md-xsmall-size-30" v-for="(list, index) in val" :key="index">
+              <div class="single-item md-layout-item" v-for="(list, index) in val" :key="index">
                 <md-icon class="item-icon" style="display: flex !important; justify-content: center; color: white">{{list.icon}}</md-icon>
                 <p style="text-align: center; font-size: 0.625rem">{{ list.label }}</p>
               </div>
@@ -293,7 +293,7 @@ export default {
 }
 
 #banner .banner-right img {
-  width: 100%;
+  width: 80%;
 }
 
 #banner .banner-left {
@@ -381,13 +381,68 @@ export default {
 
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 1575px) {
   .container {
     margin: 0 9.375rem;
   }
 
   .md-toolbar {
     padding: 0 9.375rem;
+  }
+}
+
+@media (max-width: 1244px) {
+  .container .md-layout-item .single-item {
+    padding: 0 1.563rem;
+  }
+}
+
+@media (max-width: 1063px) {
+  .container .md-layout-item .single-item {
+    padding: 0 0.938rem;
+  }
+}
+
+@media (max-width: 946px) {
+  .container {
+    margin: 0 1.25rem;
+  }
+}
+
+@media (max-width: 694px) {
+  .container .md-layout-item .single-item .item-icon {
+    padding: 0.938rem;
+    font-size: 0.938rem !important;
+  }
+}
+
+@media (max-width: 667px) {
+  .md-layout {
+    flex-flow: column;
+  }
+
+  .md-layout-item.right.reverse {
+    order: 2;
+    justify-content: center;
+  }
+
+  .md-layout-item.reverse {
+    order: 1;
+    justify-content: center;
+  }
+
+  .md-layout-item.right {
+    justify-content: center;
+  }
+
+  .md-layout-item {
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .section {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
   }
 }
 
