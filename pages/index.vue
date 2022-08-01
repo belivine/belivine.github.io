@@ -437,7 +437,7 @@ export default {
 
   .md-layout-item {
     justify-content: center;
-    margin-top: 0;
+    margin-top: 0 !important;
   }
 
   .section {
