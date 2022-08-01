@@ -417,6 +417,10 @@ export default {
 }
 
 @media (max-width: 667px) {
+  #banner {
+    height: 18.75rem;
+  }
+
   .md-layout {
     flex-flow: column;
   }
@@ -466,6 +470,12 @@ export default {
 
   #footer .footer-content p, #footer .footer-content i {
     font-size: 0.438rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  #banner {
+    height: 11.563rem;
   }
 }
 </style>
