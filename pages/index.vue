@@ -536,4 +536,10 @@ export default {
     height: 11.563rem;
   }
 }
+
+@media (max-width: 373px) {
+  .vueperslide, .vueperslide__image{
+    background-size: 150px;
+  }
+}
 </style>
