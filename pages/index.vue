@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: white">
+  <div style="background-color: #ebedf0">
     <md-toolbar class="md-accent" md-elevation="1">
       <h3 class="md-title">Belivine</h3>
       <md-button>Beranda</md-button>
