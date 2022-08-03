@@ -55,15 +55,15 @@
         </div>
       </div>
 
-      <!-- <div id="carousel" class="section">
-        <vueper-slides
-          class="no-shadow"
-          :visible-slides="3"
-          :slide-ratio="1 / 4"
-          :dragging-distance="70">
-          <vueper-slide v-for="i in slides" :key="i" :image="i.image" />
+      <div id="carousel" class="section">
+        <vueper-slides class="no-shadow" transition-speed="250">
+          <vueper-slide
+            v-for="i in slides"
+            :key="i"
+            :image="i.image"
+          />
         </vueper-slides>
-      </div> -->
+      </div>
       
       <div id="contact" class="section">
         <md-button href="https://wa.me/+6282210357112" target="_blank" class="md-primary">
@@ -347,8 +347,8 @@ export default {
 #contact .md-button {
   color: white !important;
   background-color: #27A11A;
-  width: 400px;
-  height: 60px;
+  width: 14.83vw;
+  height: 3.125rem;
   border-radius: 5px;
 }
 
@@ -359,6 +359,7 @@ export default {
 #contact .md-button .md-icon {
   color: white !important;
   margin-top: -4px;
+  font-size: 1.3vw !important;
 }
 
 #footer {
@@ -375,6 +376,29 @@ export default {
 
 #footer .footer-content p, #footer .footer-content .md-icon {
   color: white !important;
+}
+
+.vueperslide, .vueperslide__image{
+  background-size: 350px;
+  background-repeat: no-repeat;
+}
+
+.vueperslides__inner {
+  width: 600px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.vueperslides__arrows button {
+  color: black;
+}
+
+.vueperslides__arrow svg {
+  width: 2.5em;
+}
+
+.vueperslides__bullets button {
+  display: none;
 }
 
 @media (max-width: 1195px) {
@@ -395,6 +419,10 @@ export default {
   .container .md-layout-item .single-item {
     padding: 0 1.563rem;
   }
+
+  #contact .md-button {
+    height: 2.5rem;
+  }
 }
 
 @media (max-width: 1063px) {
@@ -403,9 +431,19 @@ export default {
   }
 }
 
+@media (max-width: 1120px) {
+  #contact .md-button .md-icon {
+    margin-top: -2px;
+  }
+}
+
 @media (max-width: 946px) {
   .container {
     margin: 0 1.25rem;
+  }
+
+  #contact .md-button {
+    height: 2.188rem;
   }
 }
 
@@ -448,6 +486,20 @@ export default {
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
   }
+
+  .vueperslide, .vueperslide__image{
+    background-size: 300px;
+  }
+
+  #contact .md-button .md-icon {
+    margin-right: -6px;
+  }
+}
+
+@media (max-width: 560px) {
+  .vueperslide, .vueperslide__image{
+    background-size: 250px;
+  }
 }
 
 @media (max-width: 553px) {
@@ -470,6 +522,12 @@ export default {
 
   #footer .footer-content p, #footer .footer-content i {
     font-size: 0.438rem !important;
+  }
+}
+
+@media (max-width: 465px) {
+  .vueperslide, .vueperslide__image{
+    background-size: 200px;
   }
 }
 
