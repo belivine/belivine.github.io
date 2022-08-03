@@ -443,7 +443,11 @@ export default {
   }
 
   #contact .md-button {
-    height: 2.188rem;
+    width: 24.83vw;
+  }
+
+  #contact .md-button .md-button-content, #contact .md-button .md-button-content i {
+    font-size: 2.3vw !important;
   }
 }
 
@@ -451,6 +455,10 @@ export default {
   .container .md-layout-item .single-item .item-icon {
     padding: 0.938rem;
     font-size: 0.938rem !important;
+  }
+
+  #contact .md-button {
+    width: 25.83vw;
   }
 }
 
@@ -526,6 +534,14 @@ export default {
 }
 
 @media (max-width: 465px) {
+  #contact .md-button {
+    width: 35.83vw;
+  }
+
+  #contact .md-button .md-button-content, #contact .md-button .md-button-content i {
+    font-size: 3.3vw !important;
+  }
+
   .vueperslide, .vueperslide__image{
     background-size: 200px;
   }
