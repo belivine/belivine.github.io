@@ -60,7 +60,7 @@
           <vueper-slide
             v-for="i in slides"
             :key="i"
-            :image="i.image"
+            :image="i.image" 
           />
         </vueper-slides>
       </div>
