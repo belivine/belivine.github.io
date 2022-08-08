@@ -29,13 +29,20 @@
 
       <div id="feature" class="section">
         <div class="md-layout md-gutter" v-for="(feature, idx) in features" :key="idx">
-          <div class="md-layout-item right reverse" v-if="idx % 2 == 0" style="margin-top: 2.188rem">
+          <!-- <div class="md-layout-item right reverse" v-if="idx % 2 == 0" style="margin-top: 2.188rem">
             <div v-for="(val, i) in feature.featureList" :key="i" >
               <div class="single-item md-layout-item" v-for="(list, index) in val" :key="index">
                 <md-icon class="item-icon" style="display: flex !important; justify-content: center; color: white">{{list.icon}}</md-icon>
+                <img src="/payroll.png" style="display: flex !important; justify-content: center; color: white" alt="">
                 <p style="text-align: center; font-size: 0.625rem">{{ list.label }}</p>
               </div>
             </div>
+          </div> -->
+          <div class="md-layout-item right reverse" v-if="idx % 2 == 0" style="margin-top: 2.188rem">
+              <div v-for="(val, i) in feature.featureList" :key="i" class="single-item md-layout-item">
+                <img src="/payroll.png" style="display: flex !important; justify-content: center; color: white" alt="">
+                <p style="text-align: center; font-size: 0.625rem">{{ val.label }}</p>
+              </div>
           </div>
           <div v-if="idx % 2 == 0" class="reverse md-layout-item">
             <img :src="require(`~/assets/images/${feature.image}`)" alt="" />
@@ -58,9 +65,9 @@
       <div id="carousel" class="section">
         <vueper-slides class="no-shadow" transition-speed="250">
           <vueper-slide
-            v-for="i in slides"
+            v-for="(val, i) in slides"
             :key="i"
-            :image="i.image" 
+            :image="val.image" 
           />
         </vueper-slides>
       </div>
@@ -143,7 +150,6 @@ export default {
           name: "HR",
           image: "feature-hr.png",
           featureList: [
-            [
               {
               icon: "event",
               label: "Timesheet",
@@ -152,8 +158,6 @@ export default {
                 icon: "sticky_note_2",
                 label: "Perijinan",
               },
-            ],
-            [
               {
                 icon: "assignment",
                 label: "Data Karyawan",
@@ -161,9 +165,7 @@ export default {
               {
                 icon: "edit_document",
                 label: "Data Kontrak",
-              }
-            ],
-            [
+              },
               {
                 icon: "calendar_month",
                 label: "Kalender",
@@ -172,7 +174,6 @@ export default {
                 icon: "backup_table",
                 label: "Dokumen Karyawan",
               },
-            ]
           ],
         },
         {
@@ -316,21 +317,33 @@ export default {
 
 .container .md-layout {
   margin: 3.125rem 0;
+  gap: 10px;
 }
 
 .container .md-layout-item.right {
-  display: flex;
+  display: grid;
   justify-content: flex-end;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .container .md-layout-item .single-item {
-  padding: 0 2.5rem;
+  /* padding: 0 2.5rem; */
+  width: 50px;
+  background-color: blue;
+  height: 50px;
+  border-radius: 0.313rem;
+  background: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container .md-layout-item .single-item .item-icon {
-  padding: 1.25rem;
-  background-color: blue;
-  border-radius: 0.313rem;
+.container .md-layout-item .single-item img {
+  width: 20px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .container .md-layout-item img {
@@ -417,7 +430,7 @@ export default {
 
 @media (max-width: 1244px) {
   .container .md-layout-item .single-item {
-    padding: 0 1.563rem;
+    /* padding: 0 1.563rem; */
   }
 
   #contact .md-button {
@@ -427,7 +440,7 @@ export default {
 
 @media (max-width: 1063px) {
   .container .md-layout-item .single-item {
-    padding: 0 0.938rem;
+    /* padding: 0 0.938rem; */
   }
 }
 
@@ -452,7 +465,7 @@ export default {
 }
 
 @media (max-width: 694px) {
-  .container .md-layout-item .single-item .item-icon {
+  .container .md-layout-item .single-item .img {
     padding: 0.938rem;
     font-size: 0.938rem !important;
   }
