@@ -29,20 +29,13 @@
 
       <div id="feature" class="section">
         <div class="md-layout md-gutter" v-for="(feature, idx) in features" :key="idx">
-          <!-- <div class="md-layout-item right reverse" v-if="idx % 2 == 0" style="margin-top: 2.188rem">
-            <div v-for="(val, i) in feature.featureList" :key="i" >
-              <div class="single-item md-layout-item" v-for="(list, index) in val" :key="index">
-                <md-icon class="item-icon" style="display: flex !important; justify-content: center; color: white">{{list.icon}}</md-icon>
-                <img src="/payroll.png" style="display: flex !important; justify-content: center; color: white" alt="">
-                <p style="text-align: center; font-size: 0.625rem">{{ list.label }}</p>
-              </div>
-            </div>
-          </div> -->
           <div class="md-layout-item right reverse" v-if="idx % 2 == 0" style="margin-top: 2.188rem">
-              <div v-for="(val, i) in feature.featureList" :key="i" class="single-item md-layout-item">
+            <div v-for="(val, i) in feature.featureList" :key="i" class="item-wrapper">
+              <div class="single-item md-layout-item">
                 <img src="/payroll.png" style="display: flex !important; justify-content: center; color: white" alt="">
-                <p style="text-align: center; font-size: 0.625rem">{{ val.label }}</p>
               </div>
+              <p style="text-align: center; font-size: 0.625rem">{{ val.label }}</p>
+            </div>
           </div>
           <div v-if="idx % 2 == 0" class="reverse md-layout-item">
             <img :src="require(`~/assets/images/${feature.image}`)" alt="" />
@@ -51,12 +44,12 @@
           <div v-if="idx % 2 !== 0" class="md-layout-item right">
             <img :src="require(`~/assets/images/${feature.image}`)" alt="" />
           </div>
-          <div class="md-layout-item" v-if="idx % 2 !== 0" style="margin-top: 8.125rem; display: flex">
-            <div v-for="(val, i) in feature.featureList" :key="i" >
-              <div class="single-item md-layout-item" v-for="(list, index) in val" :key="index">
-                <md-icon class="item-icon" style="display: flex !important; justify-content: center; color: white">{{list.icon}}</md-icon>
-                <p style="text-align: center; font-size: 0.625rem">{{ list.label }}</p>
+          <div class="md-layout-item not-reverse" v-if="idx % 2 !== 0">
+            <div v-for="(val, i) in feature.featureList" :key="i" class="item-wrapper">
+              <div class="single-item md-layout-item">
+                <img src="/payroll.png" style="display: flex !important; justify-content: center; color: white" alt="">
               </div>
+              <p style="text-align: center; font-size: 0.625rem">{{ val.label }}</p>
             </div>
           </div>
         </div>
@@ -70,12 +63,28 @@
             :image="val.image" 
           />
         </vueper-slides>
+        <!-- <vueper-slides class="no-shadow" transition-speed="250"
+          :class="{ 'offset-slide--first': firstSlide, 'offset-slide--last': lastSlide }"
+          @before-slide="beforeSlide"
+          :visible-slides="3"
+          :slide-ratio="1/4"
+          :dragging-distance="35"
+          :arrows-outside="false"
+          show-multiple-slides)>
+          <vueper-slide
+            v-for="(slide, i) in slides" :key="i" :title="(i + 1).toString()"
+          />
+        </vueper-slides> -->
+      </div>
+
+      <div class="section" id="vidio">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/N47NrKoR3BQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       
       <div id="contact" class="section">
-        <md-button href="https://wa.me/+6282210357112" target="_blank" class="md-primary">
+        <md-button href="https://wa.me/+6282136446350" target="_blank" class="md-primary">
           <md-icon>whatsapp</md-icon>
-          082210357112
+          0821-3644-6350
         </md-button>
       </div>
     </div>
@@ -180,7 +189,6 @@ export default {
           name: "Penggajian",
           image: "feature-payroll.png",
           featureList: [
-            [
               {
                 icon: "monetization_on",
                 label: "Data Gaji",
@@ -189,8 +197,6 @@ export default {
                 icon: "post_min",
                 label: "Potongan Gaji",
               },
-            ],
-            [
               {
                 icon: "post_add",
                 label: "Bonus",
@@ -199,39 +205,32 @@ export default {
                 icon: "home",
                 label: "THR",
               },
-            ],
-            [
               {
                 icon: "home",
                 label: "Keuangan",
               },
-            ]
           ],
         },
         {
           name: "Laporan",
           image: "feature-report.png",
           featureList: [
-            [
-              {
+            {
               icon: "home",
               label: "Penggajian",
-              },
-              {
-                icon: "",
-                label: "Keuangan",
-              },
-            ],
-            [
-              {
-                icon: "home",
-                label: "Kehadiran",
-              },
-              {
-                icon: "home",
-                label: "Kontrak",
-              }
-            ]
+            },
+            {
+              icon: "",
+              label: "Keuangan",
+            },
+            {
+              icon: "home",
+              label: "Kehadiran",
+            },
+            {
+              icon: "home",
+              label: "Kontrak",
+            }
           ],
         },
       ],
@@ -320,18 +319,40 @@ export default {
   gap: 10px;
 }
 
-.container .md-layout-item.right {
+.container .md-layout-item.right.reverse {
   display: grid;
   justify-content: flex-end;
   gap: 10px;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.container .md-layout-item.not-reverse{
+  margin-top: 8.125rem;
+  display: grid;
+  justify-content: flex-end;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.container .md-layout-item .item-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .md-layout-item .item-wrapper p {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .container .md-layout-item .single-item {
-  /* padding: 0 2.5rem; */
   width: 50px;
   background-color: blue;
-  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
   border-radius: 0.313rem;
   background: blue;
   display: flex;
@@ -414,6 +435,21 @@ export default {
   display: none;
 }
 
+#vidio {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
+}
+
+#vidio iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 1195px) {
 
 }
@@ -486,7 +522,11 @@ export default {
 
   .md-layout-item.right.reverse {
     order: 2;
-    justify-content: center;
+    /* justify-content: center; */
+    display: grid;
+    justify-content: flex-end;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .md-layout-item.reverse {
@@ -558,6 +598,12 @@ export default {
   .vueperslide, .vueperslide__image{
     background-size: 200px;
   }
+
+  .container .md-layout-item .single-item {
+    width: 35px;
+    min-height: 35px;
+    max-height: 35px;
+  }
 }
 
 @media (max-width: 420px) {
@@ -571,4 +617,43 @@ export default {
     background-size: 150px;
   }
 }
+
+/*  */
+/* .vueperslides__arrow {color: #333;}
+.vueperslides__bullet {border-color: #E73C7E;box-shadow: none;}
+
+.vueperslide {
+  color: #fff;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  transition: .3s ease-in-out;
+  opacity: 0.3;
+  filter: blur(4px);
+  transform: scale(0.8);
+}
+
+.vueperslide --active {
+  opacity: 1 !important;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.vueperslide __title {
+  font-size: 7em;
+  opacity: 0.6;
+}
+
+.offset-slide--first .vueperslides__track-inner {
+  transform: translate3d(33.333%, 0, 0) !important;
+}
+
+.offset-slide--last .vueperslides__track-inner {
+  transform: translate3d(-133.33%, 0, 0) !important;
+}
+
+p {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 10;
+} */
 </style>

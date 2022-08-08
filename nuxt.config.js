@@ -15,7 +15,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/logo_belivine.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/logo_belivine.ico' },
       { rel:'stylesheet', href:'//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons' },
     ]
   },
