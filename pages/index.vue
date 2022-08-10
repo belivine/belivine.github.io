@@ -35,7 +35,7 @@
           <div class="md-layout-item right reverse" v-if="idx % 2 == 0" style="margin-top: 2.188rem">
             <div v-for="(val, i) in feature.featureList" :key="i" class="item-wrapper">
               <div class="single-item md-layout-item">
-                <img src="/payroll.png" style="display: flex !important; justify-content: center; color: white" alt="">
+                <img :src="`/features/${val.icon}.png`" style="display: flex !important; justify-content: center; color: white" alt="">
               </div>
               <p style="text-align: center; font-size: 0.625rem">{{ val.label }}</p>
             </div>
@@ -50,7 +50,7 @@
           <div class="md-layout-item not-reverse" v-if="idx % 2 !== 0">
             <div v-for="(val, i) in feature.featureList" :key="i" class="item-wrapper">
               <div class="single-item md-layout-item">
-                <img src="/payroll.png" style="display: flex !important; justify-content: center; color: white" alt="">
+                <img :src="`/features/${val.icon}.png`" style="display: flex !important; justify-content: center; color: white" alt="">
               </div>
               <p style="text-align: center; font-size: 0.625rem">{{ val.label }}</p>
             </div>
@@ -59,7 +59,7 @@
       </div>
 
       <div id="carousel" class="section">
-        <carousel :slides="slides" :interval="0" controls indicators></carousel>
+        <carousel :slides="slides" :interval="3000" controls indicators></carousel>
       </div>
 
       <div class="section" id="vidio">
@@ -85,10 +85,6 @@
         <div class="footer-content">
           <md-icon>mail</md-icon>
           <p>belivine.team</p>
-        </div>
-        <div class="footer-content">
-          <md-icon>location_on</md-icon>
-          <p>Yogyakarta</p>
         </div>
       </div>
   </div>
@@ -121,27 +117,27 @@ export default {
           image: "feature-hr.png",
           featureList: [
               {
-              icon: "event",
-              label: "Timesheet",
+                icon: "timesheet",
+                label: "Timesheet",
               },
               {
-                icon: "sticky_note_2",
+                icon: "leave",
                 label: "Perijinan",
               },
               {
-                icon: "assignment",
+                icon: "employee",
                 label: "Data Karyawan",
               },
               {
-                icon: "edit_document",
+                icon: "contract",
                 label: "Data Kontrak",
               },
               {
-                icon: "calendar_month",
+                icon: "calendar",
                 label: "Kalender",
               },
               {
-                icon: "backup_table",
+                icon: "documents",
                 label: "Dokumen Karyawan",
               },
           ],
@@ -151,23 +147,23 @@ export default {
           image: "feature-payroll.png",
           featureList: [
               {
-                icon: "monetization_on",
+                icon: "payroll",
                 label: "Data Gaji",
               },
               {
-                icon: "post_min",
+                icon: "salary_cut",
                 label: "Potongan Gaji",
               },
               {
-                icon: "post_add",
+                icon: "allowence",
                 label: "Bonus",
               },
               {
-                icon: "home",
+                icon: "thr",
                 label: "THR",
               },
               {
-                icon: "home",
+                icon: "financial",
                 label: "Keuangan",
               },
           ],
@@ -177,19 +173,19 @@ export default {
           image: "feature-report.png",
           featureList: [
             {
-              icon: "home",
+              icon: "payroll",
               label: "Penggajian",
             },
             {
-              icon: "",
+              icon: "financial",
               label: "Keuangan",
             },
             {
-              icon: "home",
+              icon: "timesheet",
               label: "Kehadiran",
             },
             {
-              icon: "home",
+              icon: "contract",
               label: "Kontrak",
             }
           ],
