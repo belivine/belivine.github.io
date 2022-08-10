@@ -1,10 +1,13 @@
 <template>
   <div style="background-color: #ebedf0">
     <md-toolbar class="md-accent" md-elevation="1">
-      <h3 class="md-title">Belivine</h3>
-      <md-button>Beranda</md-button>
-      <md-button href=#feature>Fitur</md-button>
-      <md-button href="https://wa.me/+6282210357112" target="blank_">Kontak</md-button>
+      <!-- <h3 class="md-title">Belivine</h3> -->
+      <img class="title" src="/white-logo.svg" alt="">
+      <div class="left-menu">
+        <md-button>Beranda</md-button>
+        <md-button href=#feature>Fitur</md-button>
+        <md-button href="https://wa.me/+6282210357112" target="blank_">Kontak</md-button>
+      </div>
     </md-toolbar>
     <div id="banner">
       <div class="container" style="display: flex">
@@ -56,25 +59,7 @@
       </div>
 
       <div id="carousel" class="section">
-        <vueper-slides class="no-shadow" transition-speed="250">
-          <vueper-slide
-            v-for="(val, i) in slides"
-            :key="i"
-            :image="val.image" 
-          />
-        </vueper-slides>
-        <!-- <vueper-slides class="no-shadow" transition-speed="250"
-          :class="{ 'offset-slide--first': firstSlide, 'offset-slide--last': lastSlide }"
-          @before-slide="beforeSlide"
-          :visible-slides="3"
-          :slide-ratio="1/4"
-          :dragging-distance="35"
-          :arrows-outside="false"
-          show-multiple-slides)>
-          <vueper-slide
-            v-for="(slide, i) in slides" :key="i" :title="(i + 1).toString()"
-          />
-        </vueper-slides> -->
+        <carousel :slides="slides" :interval="0" controls indicators></carousel>
       </div>
 
       <div class="section" id="vidio">
@@ -112,47 +97,23 @@
 <script>
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
+import Carousel from '../components/Carousel.vue'
 
 export default {
   name: "IndexPage",
   components: {
     VueperSlides,
-    VueperSlide
+    VueperSlide,
+    Carousel
   },
   data() {
     return {
       screenWidth: 0,
       slides: [
-        {
-          title: 'Slide #1',
-          content: 'Slide 1 content.',
-          image: require('@/assets/images/hr.jpg')
-        },
-        {
-          title: 'Slide #1',
-          content: 'Slide 1 content.',
-          image: require('@/assets/images/login.jpg')
-        },
-        {
-          title: 'Slide #1',
-          content: 'Slide 1 content.',
-          image: require('@/assets/images/hr.jpg')
-        },
-        {
-          title: 'Slide #1',
-          content: 'Slide 1 content.',
-          image: require('@/assets/images/hr.jpg')
-        },
-        {
-          title: 'Slide #1',
-          content: 'Slide 1 content.',
-          image: require('@/assets/images/hr.jpg')
-        },
-        {
-          title: 'Slide #1',
-          content: 'Slide 1 content.',
-          image: require('@/assets/images/hr.jpg')
-        },
+        "/carousel/1.jpg",
+        "/carousel/2.jpg",
+        "/carousel/3.jpg",
+        "/carousel/4.jpg",
       ],
       features: [
         {
@@ -260,13 +221,14 @@ export default {
 </script>
 
 <style>
-.md-accent .md-title {
-  flex: 1;
+.md-accent .title {
+  width: 100px;
 }
 
 .md-toolbar.md-theme-default.md-accent {
   background-color: #1165ad;
   box-shadow: none;
+  justify-content: space-between;
 }
 
 .md-toolbar {
@@ -487,6 +449,10 @@ export default {
 }
 
 @media (max-width: 946px) {
+  .md-toolbar {
+    padding: 0px 1.375rem;
+  }
+
   .container {
     margin: 0 1.25rem;
   }
