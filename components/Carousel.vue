@@ -1,13 +1,13 @@
 <template>
   <div class="carousel">
     <div class="carousel-inner">
-      <carousel-indicators
+      <!-- <carousel-indicators
         v-if="indicators"
         class="indicators"
         :total="slides.length"
         :current-index="currentSlide"
         @switch="switchSlide($event)"
-      ></carousel-indicators>
+      ></carousel-indicators> -->
       <carousel-item
         v-for="(slide, index) in slides"
         :slide="slide"
@@ -18,12 +18,12 @@
         @mouseenter="stopSlideTimer"
         @mouseout="startSlideTimer"
       ></carousel-item>
-      <carousel-controls
+      <!-- <carousel-controls
         class="controls"
         v-if="controls"
         @prev="prev"
         @next="next"
-      ></carousel-controls>
+      ></carousel-controls> -->
     </div>
   </div>
 </template>
@@ -117,24 +117,42 @@ export default {
 }
 .carousel-inner {
   position: relative;
-  width: 900px;
-  height: 400px;
+  width: 100%;
+  height: 110vh;
   overflow: hidden;
 }
 
+@media (max-width: 1260px) {
+  .carousel-inner {
+    height: 105vh;
+  }
+}
+
+@media (max-width: 1260px) {
+  .carousel-inner {
+    height: 53vh;
+  }
+}
+
+@media (max-width: 375px) {
+  .carousel-inner {
+    height: 32vh;
+  }
+}
+
+@media (max-width: 265px) {
+  .carousel-inner {
+    height: 26vh;
+  }
+}
+
 @media (max-width: 840px) {
   .controls, .indicators {
     display: none;
   }
 
-  .carousel-inner {
+  /* .carousel-inner {
     height: calc(400px - 50px);
-  }
+  } */
 }
-/* 
-@media (max-width: 840px) {
-  .controls, .indicators {
-    display: none;
-  }
-} */
 </style>
