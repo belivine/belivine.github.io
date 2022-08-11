@@ -136,6 +136,12 @@ export default {
 
 @media (max-width: 375px) {
   .carousel-inner {
+    height: 33vh;
+  }
+}
+
+@media (max-width: 375px) {
+  .carousel-inner {
     height: 32vh;
   }
 }
